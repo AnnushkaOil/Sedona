@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/style.css">
     <link rel="icon" href="../Sedona/images/favicon.svg"> <!-- 32×32 -->
 </head>
-<body>
+<body class="body">
     <header class="page-header">
         <nav class="header-nav">
             <a class="logo">
@@ -46,7 +46,7 @@
                     </a>
                 </li>
                 <li class="menu-item">
-                    <a class="button button-secondary user-menu-button" href="">хочу сюда!</a>
+                    <button class="button button-secondary user-menu-button button--modal" type="button">хочу сюда!</button>
                 </li>
             </ul>
         </nav>
@@ -54,9 +54,9 @@
 
     <main class="main-container main-index">
         <div class="page-container">
-        <div class="main-background">
-            <h1 class="visually-hidden">Туристический город Седона</h1>
-        </div>
+            <div class="main-background">
+                <h1 class="visually-hidden">Туристический город Седона</h1>
+            </div>
         <section class="advantages">
             <h2 class="visually-hidden">Преимущества Седоны</h2>
             <p class="section-title">Седона — небольшой городок в Аризоне, заслуживающий большего!</p>
@@ -111,7 +111,7 @@
             <h2 class="visually-hidden">Поиск гостиницы</h2>
             <p class="section-title">Заинтересовались?</p>
             <p class="search-text">Укажите предполагаемые даты поездки,<br>и мы покажем вам лучшие предложения гостиниц в Седоне&#160;</p>
-            <a class="search-button button button-secondary" href="#">Поиск гостинцы в Седоне</a>
+            <button class="search-button button button-secondary button--modal" type="button">Поиск гостинцы в Седоне</button>
         </section>
 
         <section class="subscribe">
@@ -221,5 +221,21 @@
             </form>
         </div>
     </section>
+    <script>
+       let openModal = document.querySelectorAll('.button--modal');
+       let modal = document.querySelector('.modal-container');
+       let closeModal = document.querySelector('.modal-close-button');
+       
+        for (let i = 0; i < openModal.length; i++) {
+        openModal[i].addEventListener('click', function() {
+            modal.classList.remove('modal-container-closed');
+        } )
+        }
+
+        closeModal.addEventListener('click', function() {
+            modal.classList.add('modal-container-closed');
+        }
+        )
+    </script>
 </body>
 </html>
